@@ -359,9 +359,9 @@ you should place your code here."
     (add-hook 'org-capture-mode-hook 'evil-insert-state)
     (setq org-capture-templates
           '(("t" "todo" entry (file "inbox.org")
-             "* TODO %?\n%U\n")
+             "* TODO %?\n  %U\n")
             ("n" "note" entry (file "inbox.org")
-             "* %?\n%U\n")
+             "* %?\n  %U\n")
             )
           )
     )
