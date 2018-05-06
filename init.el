@@ -333,14 +333,23 @@ you should place your code here."
 
   ;; Org settings
   (with-eval-after-load 'org
-    (setq org-directory "/media/rodelrod/Celeiro/Dropbox/Databases/Org/")
-    (setq org-agenda-files '("/media/rodelrod/Celeiro/Dropbox/Databases/Org/"))
+    (setq org-directory "~/org")
+    (setq org-agenda-files '("~/org/"))
     (setq org-todo-keywords
           '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
     ;; Org-Refile config based on https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
-    (setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
+    (defun my-refile-reference-files ()
+      "Define a callable with no arguments (through partial applicatin) that I
+       can pass to org-refile-targets."
+      (directory-files "~/org/reference/" 'full ".*\.org")
+      )
+    (setq org-refile-targets
+          '(
+            (my-refile-reference-files :maxlevel . 2)
+            (org-agenda-files :maxlevel . 2)
+            ))
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
     (setq org-refile-allow-creating-parent-nodes 'confirm)
