@@ -332,6 +332,7 @@ you should place your code here."
   (setq split-width-threshold 144)
 
   ;; Org settings
+  ;; ============
   (with-eval-after-load 'org
     (setq org-directory "~/org")
     (setq org-agenda-files '("~/org/"))
@@ -339,7 +340,10 @@ you should place your code here."
           '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
-    ;; Org-Refile config based on https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
+
+    ;; Org-Refile config
+    ;; -----------------
+    ;; based on https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
     (defun my-refile-reference-files ()
       "Define a callable with no arguments (through partial applicatin) that I
        can pass to org-refile-targets."
@@ -355,7 +359,9 @@ you should place your code here."
     (setq org-refile-allow-creating-parent-nodes 'confirm)
 
     ;; Org-Capture
+    ;; -----------
     (setq org-default-notes-file "inbox.org")
+    ;; Get into insert state immediately after entering Capture
     (add-hook 'org-capture-mode-hook 'evil-insert-state)
     (setq org-capture-templates
           '(("t" "todo" entry (file "inbox.org")
@@ -365,6 +371,7 @@ you should place your code here."
             )
           )
     )
+
   ;; Function used to launch agenda on emacs client startup
   (defun org-agenda-show-n (&optional arg)
     (interactive "P")
