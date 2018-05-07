@@ -340,6 +340,7 @@ you should place your code here."
           '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
+    (setq org-enforce-todo-dependencies t)
 
     ;; Org-Refile config
     ;; -----------------
@@ -370,6 +371,11 @@ you should place your code here."
              "* %?\n  %U\n")
             )
           )
+
+    ;; Org-Pomodoro
+    ;; ------------
+    (setq org-pomodoro-start-sound-p t)
+    (setq org-pomodoro-ticking-sound-p t)
     )
 
   ;; Function used to launch agenda on emacs client startup
@@ -403,15 +409,12 @@ you should place your code here."
        (todo "WAITING" nil)
        (todo "TODO" nil))
       nil))))
- '(org-enforce-todo-dependencies t)
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf\\'" . default))))
- '(org-pomodoro-start-sound-p t)
- '(org-pomodoro-ticking-sound-p t)
  '(package-selected-packages
    (quote
     (tern yapfify web-beautify pyvenv pytest pyenv-mode py-isort pip-requirements livid-mode skewer-mode simple-httpd live-py-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode dash-functional helm-pydoc eclim yasnippet cython-mode coffee-mode anaconda-mode pythonic powerline spinner org-category-capture alert log4e gntp hydra htmlize parent-mode projectile pkg-info epl haml-mode flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core popup async org-plus-contrib ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox ox-clip org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint less-css-mode indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
