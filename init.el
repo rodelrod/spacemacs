@@ -342,8 +342,18 @@ you should place your code here."
     (setq org-hide-emphasis-markers t)
     (setq org-enforce-todo-dependencies t)
 
-    ;; Org-Refile config
-    ;; -----------------
+    ;; Org-Agenda
+    ;; ----------
+    (setq org-agenda-custom-commands
+          '(("n" "Agenda, NEXT, and other TODOs"
+             ((agenda "" nil)
+              (todo "NEXT" nil)
+              (todo "WAITING" nil)
+              )
+             nil)))
+
+    ;; Org-Refile
+    ;; ----------
     ;; based on https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
     (defun my-refile-reference-files ()
       "Define a callable with no arguments (through partial applicatin) that I
@@ -401,14 +411,6 @@ you should place your code here."
    (quote
     ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(evil-want-Y-yank-to-eol nil)
- '(org-agenda-custom-commands
-   (quote
-    (("n" "Agenda, NEXT, and other TODOs"
-      ((agenda "" nil)
-       (todo "NEXT" nil)
-       (todo "WAITING" nil)
-       (todo "TODO" nil))
-      nil))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
