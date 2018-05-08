@@ -322,17 +322,25 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
   ;; Jump out of parens, quotes etc.
   (global-set-key (kbd "C-l") 'sp-up-sexp)
+
   ;; System locale to use for formatting time values.
   (setq system-time-locale "C")         ; Make sure that the weekdays in the
                                         ; time stamps of your Org mode files and
                                         ; in the agenda appear in English.
+
   ;; Try to get agenda to split vertically a bit more often
   (setq split-width-threshold 144)
 
+  ;; Javascript
+  (setq js-indent-level 2)
+
   ;; Org settings
   ;; ============
+  (add-hook 'org-mode-hook 'visual-line-mode)
+
   (with-eval-after-load 'org
     (setq org-directory "~/org")
     (setq org-agenda-files '("~/org/"))
