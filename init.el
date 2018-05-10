@@ -339,6 +339,8 @@ you should place your code here."
 
   ;; Org settings
   ;; ============
+
+  ;; Wrap lines respecting indent
   (add-hook 'org-mode-hook 'visual-line-mode)
 
   (with-eval-after-load 'org
