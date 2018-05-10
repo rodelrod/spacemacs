@@ -351,6 +351,8 @@ you should place your code here."
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
     (setq org-enforce-todo-dependencies t)
+    ;; Put log notes (C-c C-z) and state changes in LOGBOOK drawer.
+    (setq org-log-into-drawer t)
 
     ;; Org-Agenda
     ;; ----------
