@@ -352,7 +352,7 @@ you should place your code here."
     (setq org-directory "~/org")
     (setq org-agenda-files '("~/org/"))
     (setq org-todo-keywords
-          '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c)")))
+          '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c@)")))
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
     (setq org-enforce-todo-dependencies t)
