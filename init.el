@@ -358,6 +358,10 @@ you should place your code here."
     (setq org-enforce-todo-dependencies t)
     ;; Put log notes (C-c C-z) and state changes in LOGBOOK drawer.
     (setq org-log-into-drawer t)
+    ;; Make Ctrl-i jump back like in Vim by dissociating it from TAB.
+    (setq dotspacemacs-distinguish-gui-tab t)
+
+
     ;; Org-Rifle
     ;; ----------
     ;; show path to header in search results
