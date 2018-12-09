@@ -31,13 +31,13 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
+     html
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
@@ -375,7 +375,13 @@ you should place your code here."
               (todo "NEXT" nil)
               (todo "WAITING" nil)
               )
-             nil)))
+             nil)
+            ("l"  "Entries created last week"
+             tags "+TIMESTAMP_IA>\"<-1w>\""
+             ;; Sorting roughly by from latest to earliest (it's hard to sort by
+             ;; creation date, which is what I wanted).
+             ((org-agenda-sorting-strategy '(tsia-down timestamp-down)))
+             )))
 
     ;; Org-Refile
     ;; ----------
