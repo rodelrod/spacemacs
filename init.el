@@ -387,6 +387,8 @@ you should place your code here."
              ;; creation date, which is what I wanted).
              ((org-agenda-sorting-strategy '(tsia-down timestamp-down)))
              )))
+    ;; The default 'reorganize-frame always makes me lose windows
+    (setq org-agenda-window-setup 'other-window)
 
     ;; Org-Refile
     ;; ----------
