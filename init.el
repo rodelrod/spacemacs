@@ -429,6 +429,14 @@ you should place your code here."
     ;; ---------------
     ;; Include all types of dates in the date range filter
     '(org-sparse-tree-default-date-type (quote all))
+
+    ;; Org-Stuck-Projects
+    ;; ------------------
+    ;; List as stuck project any heading-1 category for which there's no NEXT task
+    ;; except if mark as a DONE or CANCELLED todo item.
+    (setq org-stuck-projects
+          '("+LEVEL=1/-DONE-CANCELLED" ("NEXT") nil ""))
+
     )
 
   ;; Function used to launch agenda on emacs client startup
