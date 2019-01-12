@@ -432,10 +432,20 @@ you should place your code here."
 
     ;; Org-Stuck-Projects
     ;; ------------------
-    ;; List as stuck project any heading-1 category for which there's no NEXT task
-    ;; except if mark as a DONE or CANCELLED todo item.
+    ;; List as stuck project if ProjectState property is ACTIVE but it has no sub-task
+    ;; marked as NEXT; except if project is marked as a DONE or CANCELLED todo item.
+    ;; The ProjectState property is set automatically on every heading that has a
+    ;; statistics cookie.
     (setq org-stuck-projects
-          '("+LEVEL=1/-DONE-CANCELLED" ("NEXT") nil ""))
+          '("+ProjectState=\"ACTIVE\"/-DONE-CANCELLED" ("NEXT") nil ""))
+    ;; Toggle ProjectState in headings with a statistic cookie between
+    ;; ACTIVE (if it contains at least one subtask to be done) and
+    ;; MUTED (if there's no subtask to be done).
+    (defun org-summary-todo (n-done n-not-done)
+      "Switch entry to DONE when all subentries are done, to TODO otherwise."
+      (let (org-log-done org-log-states)   ; turn off logging
+        (org-set-property "ProjectState" (if (= n-not-done 0) "MUTED" "ACTIVE"))))
+    (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
     )
 
