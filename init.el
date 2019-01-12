@@ -438,6 +438,7 @@ you should place your code here."
     ;; statistics cookie.
     (setq org-stuck-projects
           '("+ProjectState=\"ACTIVE\"/-DONE-CANCELLED" ("NEXT") nil ""))
+
     ;; Toggle ProjectState in headings with a statistic cookie between
     ;; ACTIVE (if it contains at least one subtask to be done) and
     ;; MUTED (if there's no subtask to be done).
@@ -446,6 +447,12 @@ you should place your code here."
       (let (org-log-done org-log-states)   ; turn off logging
         (org-set-property "ProjectState" (if (= n-not-done 0) "MUTED" "ACTIVE"))))
     (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+    ;; Set ACTIVE and MUTED as allowed values for ProjectState
+    (defun org-property-set-allowed-project-states (property)
+      "Set allowed valued for the ProjectState property."
+      (when (equal property "ProjectState") '("ACTIVE" "MUTED")))
+    (add-hook 'org-property-allowed-value-functions 'org-property-set-allowed-project-states)
 
     )
 
