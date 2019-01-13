@@ -385,8 +385,9 @@ you should place your code here."
              tags "+TIMESTAMP_IA>\"<-1w>\""
              ;; Sorting roughly by from latest to earliest (it's hard to sort by
              ;; creation date, which is what I wanted).
-             ((org-agenda-sorting-strategy '(tsia-down timestamp-down)))
-             )))
+             ((org-agenda-sorting-strategy '(tsia-down timestamp-down))))
+            ("r" "Tasks ready to archive (closed more than 2 months ago)"
+             tags "+CLOSED<\"<-2m>\"")))
     ;; The default 'reorganize-frame always makes me lose windows
     (setq org-agenda-window-setup 'other-window)
 
