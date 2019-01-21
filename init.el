@@ -456,6 +456,9 @@ you should place your code here."
       (when (equal property "ProjectState") '("ACTIVE" "MUTED")))
     (add-hook 'org-property-allowed-value-functions 'org-property-set-allowed-project-states)
 
+    ;; Fix M-RET behaviour in Spacemacs
+    (org-defkey org-mode-map [(meta return)] 'org-meta-return)
+
     )
 
   ;; Function used to launch agenda on emacs client startup
