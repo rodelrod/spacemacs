@@ -394,6 +394,12 @@ you should place your code here."
     ;; The default 'reorganize-frame always makes me lose windows
     (setq org-agenda-window-setup 'other-window)
 
+    ;; Auto-save all org files on some org-agenda commands (feel free to add)
+    ;; based on https://emacs.stackexchange.com/a/7840 and https://emacs.stackexchange.com/a/489
+    (advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
+    (advice-add 'org-refile :after 'org-save-all-org-buffers)
+    (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
+
     ;; Org-Refile
     ;; ----------
     ;; based on https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
