@@ -378,7 +378,9 @@ you should place your code here."
     (setq org-agenda-custom-commands
           '(("n" "Agenda, NEXT, and other TODOs"
              ((agenda "" nil)
-              (todo "NEXT" nil)
+              (todo "NEXT"
+                    ((org-agenda-overriding-header "Unscheduled NEXT items:")
+                     (org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
               (todo "WAITING" nil)
               )
              nil)
