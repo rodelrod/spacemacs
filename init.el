@@ -65,6 +65,7 @@ values."
    '(
      ox-clip
      helm-org-rifle
+     org-cliplink
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -350,12 +351,21 @@ you should place your code here."
     ;; do not quit buffer on Esc (use q instead)
     (evil-magit-define-key 'normal 'magit-mode-map "<escape>" nil))
 
+  ;; Custom key bindings
+  ;; ===================
+
+  ;; Own prefix
+  (spacemacs/declare-prefix "o" "own-menu")
+
+  ;; Global and Org key bindings for org-rifle
+  (spacemacs/set-leader-keys "or" 'helm-org-rifle)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "r" 'helm-org-rifle)
+
+  ;; Org key binding for org-cliplink
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "y" 'org-cliplink)
+
   ;; Org settings
   ;; ============
-
-  ;; Global and org binding for org-rifle
-  (spacemacs/set-leader-keys "aor" 'helm-org-rifle)
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "r" 'helm-org-rifle)
 
   ;; Wrap lines respecting indent
   (add-hook 'org-mode-hook 'visual-line-mode)
@@ -509,7 +519,7 @@ you should place your code here."
  '(org-sparse-tree-default-date-type (quote all))
  '(package-selected-packages
    (quote
-    (csv-mode yaml-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern company-statistics company-emacs-eclim company-anaconda company auto-yasnippet ac-ispell auto-complete deft mmm-mode markdown-toc markdown-mode gh-md smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor helm-org-rifle tern yapfify web-beautify pyvenv pytest pyenv-mode py-isort pip-requirements livid-mode skewer-mode simple-httpd live-py-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode dash-functional helm-pydoc eclim yasnippet cython-mode coffee-mode anaconda-mode pythonic powerline spinner org-category-capture alert log4e gntp hydra htmlize parent-mode projectile pkg-info epl haml-mode flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core popup async org-plus-contrib ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox ox-clip org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint less-css-mode indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (org-cliplink imenu-list csv-mode yaml-mode helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern company-statistics company-emacs-eclim company-anaconda company auto-yasnippet ac-ispell auto-complete deft mmm-mode markdown-toc markdown-mode gh-md smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub treepy let-alist graphql with-editor helm-org-rifle tern yapfify web-beautify pyvenv pytest pyenv-mode py-isort pip-requirements livid-mode skewer-mode simple-httpd live-py-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc hy-mode dash-functional helm-pydoc eclim yasnippet cython-mode coffee-mode anaconda-mode pythonic powerline spinner org-category-capture alert log4e gntp hydra htmlize parent-mode projectile pkg-info epl haml-mode flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core popup async org-plus-contrib ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline slim-mode scss-mode sass-mode restart-emacs request rainbow-delimiters pug-mode popwin persp-mode pcre2el paradox ox-clip org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint less-css-mode indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
