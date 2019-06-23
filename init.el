@@ -410,9 +410,14 @@ you should place your code here."
     ;; The default 'reorganize-frame always makes me lose windows
     (setq org-agenda-window-setup 'other-window)
 
+    ;; Org-Archive
+    ;; -----------
+    (setq org-archive-location "%s_archive::datetree/")
+
     ;; Auto-save all org files on some org-agenda commands (feel free to add)
     ;; based on https://emacs.stackexchange.com/a/7840 and https://emacs.stackexchange.com/a/489
     (advice-add 'org-agenda-quit :before 'org-save-all-org-buffers)
+    (advice-add 'org-archive-subtree :after #'org-save-all-org-buffers)
     (advice-add 'org-refile :after 'org-save-all-org-buffers)
     (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
 
