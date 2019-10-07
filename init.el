@@ -329,8 +329,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Disable hl-todo in org-mode, it messes up the TODO kw highlighting
+  ;; This will be set by default in a future version of spacemacs, and then we can remove it
+  ;; (check https://github.com/syl20bnr/spacemacs/issues/9950)
+  (setq global-hl-todo-mode 1)
+
   ;; Jump out of parens, quotes etc.
-  (global-set-key (kbd "C-l") 'sp-up-sexp)
+  (add-hook 'org-mode-hook (lambda () (hl-todo-mode -1) nil))
 
   ;; System locale to use for formatting time values.
   (setq system-time-locale "C")         ; Make sure that the weekdays in the
