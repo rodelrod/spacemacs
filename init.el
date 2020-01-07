@@ -356,6 +356,9 @@ you should place your code here."
     ;; do not quit buffer on Esc (use q instead)
     (evil-magit-define-key 'normal 'magit-mode-map "<escape>" nil))
 
+  ;; Auto-completion is not useful in org-mode and introduces graphic glitches
+  (spacemacs|disable-company org-mode) 
+
   ;; Custom key bindings
   ;; ===================
 
