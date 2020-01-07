@@ -453,6 +453,8 @@ you should place your code here."
              "* TODO %?\n  %U\n")
             ("n" "note" entry (file "inbox.org")
              "* %?\n  %U\n")
+            ("r" "weekly org review" entry (file+headline "pessoal.org" "Org Reviews")
+             (file "~/org/templates/review.org"))
             )
           )
 
