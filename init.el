@@ -452,9 +452,11 @@ you should place your code here."
     ;; Get into insert state immediately after entering Capture
     (add-hook 'org-capture-mode-hook 'evil-insert-state)
     (setq org-capture-templates
-          '(("t" "todo" entry (file "inbox.org")
+          '(("t" "todo" entry
+             (file "inbox.org")
              "* TODO %?\n  %U\n")
-            ("n" "note" entry (file "inbox.org")
+            ("n" "note" entry
+             (file "inbox.org")
              "* %?\n  %U\n")
             ("r" "weekly org review" entry
              (file "weekly_reviews.org")
