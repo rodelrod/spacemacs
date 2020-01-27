@@ -381,7 +381,7 @@ you should place your code here."
     (setq org-directory "~/org")
     (setq org-agenda-files '("~/org/"))
     (setq org-todo-keywords
-          '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c@)")))
+          '((sequence "TODO(t)" "NEXT(n)" "WAITING(w@)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c@)")))
     (spacemacs/toggle-mode-line-org-clock-on)
     (setq org-hide-emphasis-markers t)
     (setq org-enforce-todo-dependencies t)
@@ -475,12 +475,12 @@ you should place your code here."
 
     ;; Org-Stuck-Projects
     ;; ------------------
-    ;; List as stuck project if ProjectState property is ACTIVE but it has no sub-task
-    ;; marked as NEXT; except if project is marked as a DONE or CANCELLED todo item.
-    ;; The ProjectState property is set automatically on every heading that has a
-    ;; statistics cookie.
+    ;; List as stuck project if ProjectState property is ACTIVE but it has no
+    ;; sub-task marked as NEXT; except if project is marked as a SOMEDAY, DONE
+    ;; or CANCELLED todo item. The ProjectState property is set automatically on
+    ;; every heading that has a statistics cookie.
     (setq org-stuck-projects
-          '("+ProjectState=\"ACTIVE\"/-DONE-CANCELLED" ("NEXT") nil ""))
+          '("+ProjectState=\"ACTIVE\"/-SOMEDAY-DONE-CANCELLED" ("NEXT") nil ""))
 
     ;; Toggle ProjectState in headings with a statistic cookie between
     ;; ACTIVE (if it contains at least one subtask to be done) and
