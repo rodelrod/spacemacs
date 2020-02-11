@@ -393,6 +393,9 @@ you should place your code here."
     (setq org-log-into-drawer t)
     ;; Make Ctrl-i jump back like in Vim by dissociating it from TAB.
     (setq dotspacemacs-distinguish-gui-tab t)
+    ;; Open narrowed indirect buffer in a new frame instead of re-using another window.
+    ;; This means I have to delete the buffers myself, or they'll just accumulate.
+    (setq org-indirect-buffer-display 'new-frame)
 
 
     ;; Org-Rifle
