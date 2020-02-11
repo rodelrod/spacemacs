@@ -335,9 +335,10 @@ you should place your code here."
   ;; This will be set by default in a future version of spacemacs, and then we can remove it
   ;; (check https://github.com/syl20bnr/spacemacs/issues/9950)
   (setq global-hl-todo-mode 1)
+  (add-hook 'org-mode-hook (lambda () (hl-todo-mode -1) nil))
 
   ;; Jump out of parens, quotes etc.
-  (add-hook 'org-mode-hook (lambda () (hl-todo-mode -1) nil))
+  (global-set-key (kbd "C-l") 'sp-up-sexp)
 
   ;; System locale to use for formatting time values.
   (setq system-time-locale "C")         ; Make sure that the weekdays in the
