@@ -403,6 +403,17 @@ you should place your code here."
     ;; show path to header in search results
     (setq helm-org-rifle-show-path t)
 
+    ;; While I do want to prepend the paths in helm-org-rifle, the few times
+    ;; that I use helm-org-rifle-occur this setting breaks the occur
+    ;; functionality because the buffer does not respect the Org syntax. I asked
+    ;; the author [1] and he was kind enough to give me a workaround.
+    ;; [1]  https://github.com/alphapapa/org-rifle/issues/46
+    (defun rodelrod/helm-org-rifle-occur ()
+      "Call `helm-org-rifle-occur' with paths disabled."
+      (interactive)
+      (let (helm-org-rifle-show-path)
+        (call-interactively #'helm-org-rifle-occur)))
+
     ;; Org-Agenda
     ;; ----------
     (setq org-agenda-custom-commands
