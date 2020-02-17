@@ -425,13 +425,20 @@ you should place your code here."
               (todo "WAITING" nil)
               )
              nil)
+
+            ;; Last week entries sorted roughly by from latest to earliest (it's
+            ;; hard to sort by creation date, which is what I wanted).
             ("l"  "Entries created last week"
              tags "+TIMESTAMP_IA>\"<-1w>\""
-             ;; Sorting roughly by from latest to earliest (it's hard to sort by
-             ;; creation date, which is what I wanted).
              ((org-agenda-sorting-strategy '(tsia-down timestamp-down))))
-            ("r" "Tasks ready to archive (closed more than 2 months ago)"
-             tags "+CLOSED<\"<-2m>\"")))
+
+            ;; Allow me to archive old items. I prefer archiving only level-2
+            ;; headings: Level-1 are Areas and Level-2 can be projects or odd
+            ;; tasks. I want to archive project trees in one go instead of
+            ;; having the tasks scattered in the Archive datetree.
+            ("r" "Tasks/Projects ready to archive (Level-2 items closed more than 2 months ago)"
+             tags "+CLOSED<\"<-2m>\"+LEVEL=2")))
+
     ;; The default 'reorganize-frame always makes me lose windows
     (setq org-agenda-window-setup 'other-window)
 
