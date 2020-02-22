@@ -370,7 +370,6 @@ you should place your code here."
 
   ;; Global and Org key bindings for org-rifle
   (spacemacs/set-leader-keys "or" 'helm-org-rifle)
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "r" 'helm-org-rifle)
 
   ;; Org key binding for org-cliplink
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "y" 'org-cliplink)
