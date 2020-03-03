@@ -354,7 +354,10 @@ you should place your code here."
   (setq js-indent-level 2)
 
   ;; Deft
-  (setq deft-directory "~/org/deft")
+  (with-eval-after-load 'org
+    (setq deft-directory "~/org/deft")
+    (setq deft-recursive t)
+    (setq deft-use-filename-as-title nil))
 
   ;; Magit
   (with-eval-after-load 'evil-magit
