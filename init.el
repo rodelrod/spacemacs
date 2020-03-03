@@ -400,7 +400,9 @@ you should place your code here."
     ;; Open narrowed indirect buffer in a new frame instead of re-using another window.
     ;; This means I have to delete the buffers myself, or they'll just accumulate.
     (setq org-indirect-buffer-display 'new-frame)
-
+    ;; Create and use ID property for links, instead of text
+    ;; Uses a human-readable CUSTOM_ID property if it exists
+    (setq org-id-link-to-org-use-id 'create-if-iteractive-and-no-custom-id)
 
     ;; Org-Rifle
     ;; ----------
