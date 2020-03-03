@@ -68,6 +68,7 @@ values."
      org-cliplink
      org-ql
      org-ql-search
+     helm-org
      helm-org-ql
      )
    ;; A list of packages that cannot be updated.
