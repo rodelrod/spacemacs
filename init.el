@@ -404,6 +404,16 @@ you should place your code here."
     ;; Uses a human-readable CUSTOM_ID property if it exists
     (setq org-id-link-to-org-use-id 'create-if-iteractive-and-no-custom-id)
 
+    ;; Create an Evernote link type that will a custom launch script at
+    ;; `~/bin/nixnote_url' which opens the correct note in Nixnote2.
+    (defun evernote-open-link (url)
+      (let ((display-buffer-alist
+             (cons (cons "\\*Async Shell Command\\*.*"
+                         (cons #'display-buffer-no-window nil))
+                   display-buffer-alist))) ;; suppress async shell command window
+        (async-shell-command (concat "nixnote_url evernote:" url))))
+    (org-add-link-type "evernote" 'evernote-open-link)
+
     ;; Org-Rifle
     ;; ----------
     ;; show path to header in search results
