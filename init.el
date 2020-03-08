@@ -402,7 +402,7 @@ you should place your code here."
     (setq org-indirect-buffer-display 'new-frame)
     ;; Create and use ID property for links, instead of text
     ;; Uses a human-readable CUSTOM_ID property if it exists
-    (setq org-id-link-to-org-use-id 'create-if-iteractive-and-no-custom-id)
+    (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
     ;; Create an Evernote link type that will a custom launch script at
     ;; `~/bin/nixnote_url' which opens the correct note in Nixnote2.
