@@ -420,6 +420,11 @@ you should place your code here."
     (setq deft-recursive t)
     (setq deft-use-filename-as-title nil)
 
+    ;; Org-Protocol
+    ;; ------------
+    (require 'org-protocol)
+    (add-to-list 'org-modules 'org-protocol)
+
     ;; Org-Rifle
     ;; ----------
     ;; show path to header in search results
