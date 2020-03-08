@@ -414,6 +414,12 @@ you should place your code here."
         (async-shell-command (concat "nixnote_url evernote:" url))))
     (org-add-link-type "evernote" 'evernote-open-link)
 
+    ;; Deft
+    ;; ----
+    (setq deft-directory "~/org/deft")
+    (setq deft-recursive t)
+    (setq deft-use-filename-as-title nil)
+
     ;; Org-Rifle
     ;; ----------
     ;; show path to header in search results
