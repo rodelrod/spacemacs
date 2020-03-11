@@ -371,7 +371,11 @@ you should place your code here."
   ;; Custom key bindings
   ;; ===================
 
-  ;; Own prefix
+
+  ;; Use avy to jump around the screen
+  (global-set-key (kbd "C-;") 'evil-avy-goto-char-timer)
+
+  ;; Own prefix (after SPC)
   (spacemacs/declare-prefix "o" "own-menu")
 
   ;; Global and Org key bindings for org-rifle
