@@ -557,6 +557,38 @@ you should place your code here."
     ;; Fix M-RET behaviour in Spacemacs
     (org-defkey org-mode-map [(meta return)] 'org-meta-return)
 
+    ;; Move a sub-tree to the top or bottom of its parent
+    ;; --------------------------------------------------
+    ;; Copied from a John Kitchin's SO answer: https://emacs.stackexchange.com/a/43662
+    (defun JK-org-move-to-extreme (up)
+      "Move current org subtree to the end of its parent.
+       With prefix arg move subtree to the start of its parent."
+      (interactive "P")
+      (condition-case err
+          (while t
+            (funcall (if up
+                         'org-move-subtree-up
+                       'org-move-subtree-down)))
+        (user-error
+         (let ((err-msg (cadr err)))
+           (unless (string-match "Cannot move past superior level or buffer limit" err-msg)
+             (signal 'user-error (list err-msg)))))))
+
+    (defun JK-org-move-to-top ()
+      "Move sub-tree to top of parent"
+      (interactive)
+      (setq current-prefix-arg 4) ; C-u
+      (call-interactively 'JK-org-move-to-extreme))
+
+    (defun JK-org-move-to-bottom ()
+      "Move sub-tree to bottom of parent"
+      (interactive)
+      (call-interactively 'JK-org-move-to-extreme))
+
+    ;; Bind keys
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "ht" 'JK-org-move-to-top)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "hb" 'JK-org-move-to-bottom)
+
     )
 
   ;; Function used to launch agenda on emacs client startup
