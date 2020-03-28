@@ -384,6 +384,9 @@ you should place your code here."
   ;; Org key binding for org-cliplink
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "y" 'org-cliplink)
 
+  ;; Org key binding for org-columns
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "v" 'org-columns)
+
   ;; Org settings
   ;; ============
 
