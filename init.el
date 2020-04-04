@@ -408,8 +408,15 @@ you should place your code here."
     ;; Open narrowed indirect buffer in a new frame instead of re-using another window.
     ;; This means I have to delete the buffers myself, or they'll just accumulate.
     (setq org-indirect-buffer-display 'new-frame)
+
     ;; Create and use ID property for links, instead of text
     ;; Uses a human-readable CUSTOM_ID property if it exists
+    ;;
+    ;; For some reason I need to use the first 2 lines here to force loading
+    ;; `org-id', or else this won't work (`org-store' won't create an ID
+    ;; property) until a `org-id-*' command is executed.
+    (require 'org-id)
+    (add-to-list 'org-modules 'org-id)
     (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
     ;; Create an Evernote link type that will a custom launch script at
