@@ -373,7 +373,14 @@ you should place your code here."
 
 
   ;; Use avy to jump around the screen
-  (global-set-key (kbd "C-;") 'evil-avy-goto-char-timer)
+  (global-set-key (kbd "C-'") 'evil-avy-goto-char-timer)
+
+  ;; Use C-; to insert current datetime like in every other app
+  (defun rodelrod/insert-timestamp ()
+    "Insert current date time formatted like an org inactive timestamp."
+    (interactive)
+    (insert (format-time-string "[%Y-%m-%d %a %H:%M]")))
+  (global-set-key (kbd "C-;") 'rodelrod/insert-timestamp)
 
   ;; Own prefix (after SPC)
   (spacemacs/declare-prefix "o" "own-menu")
