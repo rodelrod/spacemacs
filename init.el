@@ -449,6 +449,28 @@ you should place your code here."
     ;; ------------
     (require 'org-protocol)
     (add-to-list 'org-modules 'org-protocol)
+    ;; Allow linking to a heading from outside emacs
+    ;; from https://emacs.stackexchange.com/a/58174/29166
+    (add-to-list 'org-protocol-protocol-alist
+                 '("org-id" :protocol "org-id"
+                 :function org-id-protocol-goto-org-id))
+
+    (defun org-id-protocol-goto-org-id (info)
+      "This handler simply goes to the org heading with given id using emacsclient.
+
+    INFO is an alist containing additional information passed by the protocol URL.
+    It should contain the id key, pointing to the path of the org id.
+
+      Example protocol string:
+      org-protocol://org-id?id=309A0509-81BE-4D51-87F4-D3F61B79EBA4"
+      (when-let ((id (plist-get info :id)))
+        (org-id-goto id))
+      nil)
+
+    (defun org-id-protocol-link-copy ()
+      (interactive)
+      (org-kill-new (concat "org-protocol://org-id?id="
+                            (org-id-copy))))
 
     ;; Org-Rifle
     ;; ----------
