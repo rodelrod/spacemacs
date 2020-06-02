@@ -455,6 +455,8 @@ you should place your code here."
     ;; ------------
     (require 'org-protocol)
     (add-to-list 'org-modules 'org-protocol)
+    (setq org-protocol-default-template-key "p")
+
     ;; Allow linking to a heading from outside emacs
     ;; from https://emacs.stackexchange.com/a/58174/29166
     (add-to-list 'org-protocol-protocol-alist
@@ -562,6 +564,10 @@ you should place your code here."
             ("n" "note" entry
              (file "inbox.org")
              "* %?\n  %U\n")
+            ("p" "org-protocol" entry
+             (file "inbox.org")
+             "* %:annotation\n  %U\n\n%i\n"
+         :empty-lines 1)
             ("r" "weekly org review" entry
              (file "weekly_reviews.org")
              (file "~/org/templates/review.org"))
