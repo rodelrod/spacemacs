@@ -72,7 +72,6 @@ values."
      org-ql-search
      helm-org
      helm-org-ql
-     yequake
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -371,18 +370,6 @@ you should place your code here."
 
   ;; Auto-completion is not useful in org-mode and introduces graphic glitches
   (spacemacs|disable-company org-mode)
-
-  ;; Use yequake for open emacs frames directly from the OS
-  (setq yequake-frames
-        '(("org-capture"
-           (buffer-fns . (yequake-org-capture))
-           (width . 0.75)
-           (height . 0.5)
-           (alpha . 0.95)
-           (frame-parameters . ((undecorated . t)
-                                (skip-taskbar . t)
-                                (sticky . t))))))
-
 
   ;; Custom key bindings
   ;; ===================
