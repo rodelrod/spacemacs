@@ -677,6 +677,7 @@ you should place your code here."
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf\\'" . default))))
+ '(org-roam-directory "~/org/deft")
  '(org-sparse-tree-default-date-type (quote all))
  '(package-selected-packages
    (quote
