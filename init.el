@@ -391,11 +391,17 @@ you should place your code here."
   ;; Global and Org key bindings for org-rifle
   (spacemacs/set-leader-keys "or" 'helm-org-rifle)
 
-  ;; Org key binding for org-cliplink
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "y" 'org-cliplink)
 
   ;; Org key binding for org-columns
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "v" 'org-columns)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "oc" 'org-columns)
+
+  ;; Org key binding for org-cliplink
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "op" 'org-cliplink)
+
+  ;; Org key bindings for IDs
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "ol" 'org-store-link)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "oy" 'org-id-protocol-link-copy)
+
 
   ;; Org settings
   ;; ============
