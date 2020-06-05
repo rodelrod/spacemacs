@@ -572,6 +572,10 @@ you should place your code here."
     (setq org-pomodoro-start-sound-p t)
     (setq org-pomodoro-ticking-sound-p t)
 
+
+    ;; Org-Roam
+    ;; --------
+    (setq org-roam-tag-sources '(prop all-directories))
     (setq org-roam-directory "~/org/notes")
 
     ;; Org-Sparse-Tree
