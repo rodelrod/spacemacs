@@ -439,7 +439,7 @@ you should place your code here."
 
     ;; Deft
     ;; ----
-    (setq deft-directory "~/org/deft")
+    (setq deft-directory "~/org/notes")
     (setq deft-recursive t)
     (setq deft-use-filename-as-title nil)
 
@@ -571,6 +571,8 @@ you should place your code here."
     ;; ------------
     (setq org-pomodoro-start-sound-p t)
     (setq org-pomodoro-ticking-sound-p t)
+
+    (setq org-roam-directory "~/org/notes")
 
     ;; Org-Sparse-Tree
     ;; ---------------
