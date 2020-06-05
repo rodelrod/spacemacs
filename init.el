@@ -559,7 +559,8 @@ you should place your code here."
             ("p" "org-protocol" entry
              (file "inbox.org")
              "* %:annotation\n  %U\n\n%i\n"
-         :empty-lines 1)
+             :empty-lines 1
+             :immediate-finish t)
             ("r" "weekly org review" entry
              (file "weekly_reviews.org")
              (file "~/org/templates/review.org"))
