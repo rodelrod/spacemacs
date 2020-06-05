@@ -654,6 +654,17 @@ you should place your code here."
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((python . t)))
+
+  ;; Export to an `./exports' directory to prevent cluttering the main file and
+  ;; allow to easily exclude from git.
+  ;; Adapted from https://stackoverflow.com/a/47850858/20989
+  (defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
+    (unless pub-dir
+      (setq pub-dir "exports")
+      (unless (file-directory-p pub-dir)
+        (make-directory pub-dir)))
+    (apply orig-fun extension subtreep pub-dir nil))
+  (advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
