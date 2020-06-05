@@ -352,12 +352,6 @@ you should place your code here."
   ;; Javascript
   (setq js-indent-level 2)
 
-  ;; Deft
-  (with-eval-after-load 'org
-    (setq deft-directory "~/org/deft")
-    (setq deft-recursive t)
-    (setq deft-use-filename-as-title nil))
-
   ;; Open org archive files in org-mode
   (add-to-list 'auto-mode-alist '("\\.org_archive\\'" . org-mode)) 
 
